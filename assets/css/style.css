@@ -53,13 +53,14 @@ body {
     color: rgb(240, 233, 210);
 }
 input {
+    height: 20px;
     border-radius: 5px;
 }
 
 .btn-form {
     position: absolute;
     width: 50%;
-    bottom: 0px;
+    bottom: 10px;
     background: rgb(230, 221, 196);
     height: 50px;
     border-radius: 15px;
@@ -67,6 +68,27 @@ input {
     font-size: 20px;
 }
 .btn-form:hover{
+    color: white;
+    font-size: 20px;
+}
+
+.btn-home {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+
+    bottom: 10px;
+    background: rgb(230, 221, 196);
+    height: 50px;
+    border-radius: 15px;
+    color: rgb(24, 29, 49);
+    font-size: 20px;
+}
+.header__title {
+    margin-top: 50px;
+}
+.btn-home:hover{
     color: white;
     font-size: 20px;
 }
