@@ -34,14 +34,18 @@ const authController = {
     const { login, password } = req.body;
     const currentUser = await User.findOne({ where: { login } });
     try {
+      const decryptPassword = await bcrypt.compare(
+        password,
+        currentUser.password,
+      );
+
       // vérification correspondance login et mdp input et base
-      if (currentUser.login !== login || currentUser.password !== password) {
+      if (currentUser.login !== login || decryptPassword == false) {
         return res.render('signin', { badPassword: true });
       }
       res.render('listOfAcces');
     } catch (err) {
       console.log(err);
-
       return res.render('signin', { badPassword: true });
     }
   },
