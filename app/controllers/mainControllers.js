@@ -1,5 +1,9 @@
+const User = require('../models/User');
+
 const mainController = {
-  homePage (req, res) {
+  async homePage (req, res) {
+    const user = await User.findAll();
+    console.log(user);
     res.render('index');
   },
   signinPage (req, res) {
