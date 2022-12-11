@@ -6,6 +6,9 @@
                     <input type="text" name="login" id="login" required>
                     <label class="form-text" for="">Password</label>
                     <input type="password" name="password" id="password" required>
+                    <% if(badPassword) {%>
+                        <p class="alert-password">Mauvais Login ou Mot de passe</p>
+                    <%} %>
                     <input class="btn-form" type="submit" value="Me connecter">
                 </form>
             </main>
