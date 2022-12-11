@@ -11,6 +11,7 @@ CREATE TABLE "user" (
     "lastname" TEXT NOT NULL,
     "email" TEXT NOT NULL UNIQUE,
     "login" TEXT NOT NULL UNIQUE,
+    "password" TEXT NOT NULL,
     "member_type" INTEGER REFERENCES "member"("id"),
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ

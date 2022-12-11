@@ -92,3 +92,8 @@ input {
     color: white;
     font-size: 20px;
 }
+
+.alert-password {
+    color: red;
+    font-size: 20px;
+}

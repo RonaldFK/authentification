@@ -1,5 +1,5 @@
 -- seeding table user
-INSERT INTO "user" (firstname,lastname,email,login) VALUES('admin','Doe','admin@doe.fr','admin');
+INSERT INTO "user" (firstname,lastname,email,login,password) VALUES('admin','Doe','admin@doe.fr','admin','admin');
 
 -- seeding table member
 INSERT INTO "member" (name) VALUES('admin');

@@ -2,15 +2,20 @@
 <%- include ('./partials/header.ejs') %>
             <main class="main-form">
                 <form action="" method="POST">
-                    <label class="form-text" for="">Firstname</label>
+                    <label class="form-text" for="">Votre prénom</label>
                     <input type="text" name="firstname" id="firstname" required>
-                    <label class="form-text" for="">Lastname</label>
+                    <label class="form-text" for="">Votre nom</label>
                     <input type="text" name="lastname" id="lastname" required>
-                    <label class="form-text" for="">Email</label>
+                    <label class="form-text" for="">Une adresse email</label>
                     <input type="text" name="email" id="email" required>
-                    <label class="form-text" for="">Password</label>
+                    <label class="form-text" for="">Votre mot de passe</label>
                     <input type="password" name="password" id="password" required>
-                    <input class="btn-form" type="button" value="Créer mon compte">
+                    <label class="form-text" for="">Vérification du mot de passe</label>
+                    <input type="password" name="checkPassword" id="checkPassword" required>
+                    <% if(badPassword) {%>
+                        <p class="alert-password">Erreur lors de la vérirication du mot de passe</p>
+                    <%} %>
+                    <input class="btn-form" type="submit" value="Créer mon compte">
                 </form>
             </main>
     </div>
