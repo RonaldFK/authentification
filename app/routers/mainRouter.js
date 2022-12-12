@@ -6,7 +6,11 @@ const authController = require('../controllers/authController');
 
 router.get('/', mainController.homePage);
 router.get('/signin', mainController.signinPage);
-router.post('/signin', authController.signinAccess);
+router.post(
+  '/signin',
+  middleware.middlewareSession,
+  authController.signinAccess,
+);
 router.get('/signup', mainController.signupPage);
 router.post('/signup', authController.signupAccount);
 router.use(middleware.middleware404);

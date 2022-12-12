@@ -33,6 +33,7 @@ const authController = {
   async signinAccess (req, res) {
     const { login, password } = req.body;
     const currentUser = await User.findOne({ where: { login } });
+
     try {
       const decryptPassword = await bcrypt.compare(
         password,
@@ -43,6 +44,8 @@ const authController = {
       if (currentUser.login !== login || decryptPassword == false) {
         return res.render('signin', { badPassword: true });
       }
+      req.session.user.push(currentUser);
+      console.log(req.session.user);
       res.render('listOfAcces');
     } catch (err) {
       console.log(err);
