@@ -44,8 +44,13 @@ const authController = {
       if (currentUser.login !== login || decryptPassword == false) {
         return res.render('signin', { badPassword: true });
       }
+      //   req.session.user;
+      //   res.setHeader('Content-Type', 'text/html');
+      //   res.write('<p>views: ' + req.session.user + '</p>');
+      //   //   res.write('<p>expires in: ' + req.session.cookie.maxAge / 1000 + 's</p>');
+      //   res.end();
       req.session.user.push(currentUser);
-      console.log(req.session.user);
+      //   console.log(req.session.user);
       res.render('listOfAcces');
     } catch (err) {
       console.log(err);

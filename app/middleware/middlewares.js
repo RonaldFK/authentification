@@ -4,10 +4,10 @@ const middlewares = {
     next();
   },
   middlewareSession (req, res, next) {
-    console.log('RESULT SESSION EXIST :', req.session.user);
     if (!req.session.user) {
       req.session.user = [];
     }
+    console.log(req.session.user);
     next();
   },
 };

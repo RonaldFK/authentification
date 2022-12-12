@@ -1,8 +1,14 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
-const sequelize = new Sequelize('formulaire', 'admin', 'admin', {
-  host: 'localhost',
-  dialect: 'postgres',
-});
+const sequelize = new Sequelize(
+  `${process.env.PGDATABASE}`,
+  `${process.env.PGUSER}`,
+  `${process.env.PGPASSWORD}`,
+  {
+    host: `${process.env.PGHOST}`,
+    dialect: 'postgres',
+  },
+);
 
 module.exports = sequelize;
