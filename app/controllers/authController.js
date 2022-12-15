@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-// const mongoDb = require('../dataSource/mongoDataSource');
+const schema = require('../dataValidation/joi');
+
 const saltRounds = 10;
 
 const authController = {
@@ -12,6 +13,14 @@ const authController = {
    */
   async signupAccount (req, res) {
     const { firstname, lastname, email, password, checkPassword } = req.body;
+    const verif = schema.validate({
+      firstname,
+      lastname,
+      email,
+      password,
+      checkPassword,
+    });
+    console.log(verif);
     // Récupération du hash du password avant stockage en bdd
     const hashPassword = await bcrypt.hash(password, saltRounds);
 
