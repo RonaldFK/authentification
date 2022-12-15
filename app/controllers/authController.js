@@ -13,6 +13,7 @@ const authController = {
    */
   async signupAccount (req, res) {
     const { firstname, lastname, email, password, checkPassword } = req.body;
+
     const verif = schema.validate({
       firstname,
       lastname,
@@ -20,7 +21,14 @@ const authController = {
       password,
       checkPassword,
     });
-    console.log(verif);
+    // Si une erreur lors de la vérif, renvoie True, sinon False
+    // Si true, je redirige vers signup
+
+    if (verif.error) {
+      console.log('je passse ici');
+      return res.redirect('/signup');
+    }
+
     // Récupération du hash du password avant stockage en bdd
     const hashPassword = await bcrypt.hash(password, saltRounds);
 

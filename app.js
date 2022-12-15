@@ -3,8 +3,7 @@ const app = express();
 const router = require('./app/routers/mainRouter');
 const path = require('path');
 const sequelize = require('./app/dataSource/formulaireDataSource');
-// const session = require('express-session');
-// const MongoStore = require('connect-mongo');
+
 const mongoDb = require('./app/dataSource/mongoDataSource');
 const connectMongo = require('./app/dataSource/connectMongoDatasource');
 require('dotenv').config();

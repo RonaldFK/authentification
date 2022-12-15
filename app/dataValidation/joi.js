@@ -21,14 +21,4 @@ const schema = Joi.object().keys({
   checkPassword: Joi.ref('password'),
 });
 
-// const data = {
-//   firstname: 'Srajan',
-//   lastname: 'bobi',
-//   email: 'bobi@gmail.com',
-//   password: 'test',
-//   checkPassword: 'test',
-// };
-
-// const result = schema.validate(data);
-// console.log(result);
 module.exports = schema;
