@@ -26,7 +26,7 @@ const authController = {
 
     if (verif.error) {
       console.log('je passse ici');
-      return res.redirect('/signup');
+      return res.render('signup', { badFormData: true, badPassword: false });
     }
 
     // Récupération du hash du password avant stockage en bdd

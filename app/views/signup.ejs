@@ -1,6 +1,9 @@
 <%- include ('./partials/head.ejs') %>
 <%- include ('./partials/header.ejs') %>
             <main class="main-form">
+                <% if(badFormData) {%>
+                    <p class="alert-password">Erreur de formulaire, merci de vérifier vos données</p>
+                <%} %>
                 <form action="" method="POST">
                     <label class="form-text" for="">Votre prénom</label>
                     <input type="text" name="firstname" id="firstname" required>
