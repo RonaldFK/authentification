@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const schema = require('../dataValidation/joi');
-
+const transporter = require('../dataValidation/nodeMailer');
 const saltRounds = 10;
 
 const authController = {
@@ -20,11 +20,11 @@ const authController = {
       email,
       password,
     });
-
+    console.log(verif.error);
     // Si une erreur lors de la vérif, verif.error = True
 
     if (verif.error) {
-      return res.render('signup', { badFormData: true, badPassword: false });
+      return res.render('signup', { badFormData: true, msgInfo: false });
     }
 
     // Récupération du hash du password avant stockage en bdd
@@ -43,10 +43,21 @@ const authController = {
       if (password !== checkPassword) {
         // return si pas de correspondance
         // badPassword = déclenchement message d'erreur pour l'utilisateur
-        return res.render('signup', { badPassword: true, badFormData: false });
+        return res.render('signup', {
+          msgInfo: 'Vérification de mot de passe non valide',
+          badFormData: false,
+        });
       } else {
         await newUser.save();
-        res.render('signin', { badPassword: false });
+        await transporter.sendMail({
+          from: `Fred Foo 👻" <${process.env.NODEMAILER_EMAIL}>`, // sender address
+          to: `${email}`, // list of receivers
+          subject: 'Bienvenue sur notre site', // Subject line
+          text: `Bonjour, ${firstname} votre inscription est bien validée, rendez-vous sur http://localhost:${process.env.PORT}/signin`, // plain text body
+          html: `<p>Bonjour,<b>${firstname}</b>  votre inscription est bien validée, rendez-vous sur http://localhost:${process.env.PORT}/signin</p>`,
+        });
+
+        res.render('signin', { msgInfo: 'Compte créé' });
       }
     } catch (err) {
       console.log(err);
@@ -61,8 +72,7 @@ const authController = {
   async signinAccess (req, res) {
     const { login, password } = req.body;
     const currentUser = await User.findOne({ where: { login } });
-    // const database = client.db('sample_mflix');
-    // const sessions = database.collection('sessions');
+
     try {
       const decryptPassword = await bcrypt.compare(
         password,

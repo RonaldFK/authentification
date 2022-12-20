@@ -15,8 +15,8 @@
                     <input type="password" name="password" id="password" required>
                     <label class="form-text" for="">Vérification du mot de passe</label>
                     <input type="password" name="checkPassword" id="checkPassword" required>
-                    <% if(badPassword) {%>
-                        <p class="alert-password">Erreur lors de la vérirication du mot de passe</p>
+                    <% if(msgInfo) {%>
+                        <p class="alert-password"><%= msgInfo %></p>
                     <%} %>
                     <input class="btn-form" type="submit" value="Créer mon compte">
                 </form>

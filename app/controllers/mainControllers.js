@@ -3,10 +3,10 @@ const mainController = {
     res.render('index');
   },
   signinPage (req, res) {
-    res.render('signin', { badPassword: false });
+    res.render('signin', { msgInfo: false });
   },
   signupPage (req, res) {
-    res.render('signup', { badPassword: false, badFormData: false });
+    res.render('signup', { msgInfo: false, badFormData: false });
   },
 };
 

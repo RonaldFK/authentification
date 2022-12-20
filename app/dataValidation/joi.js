@@ -13,7 +13,7 @@ const schema = Joi.object().keys({
     .required()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ['com', 'net'] },
+      tlds: { allow: ['com', 'net', 'email'] },
     }),
   password: Joi.string()
     .required()
