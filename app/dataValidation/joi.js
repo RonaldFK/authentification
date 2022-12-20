@@ -18,7 +18,6 @@ const schema = Joi.object().keys({
   password: Joi.string()
     .required()
     .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-  checkPassword: Joi.ref('password'),
 });
 
 module.exports = schema;

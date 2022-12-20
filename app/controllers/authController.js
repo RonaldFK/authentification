@@ -13,19 +13,17 @@ const authController = {
    */
   async signupAccount (req, res) {
     const { firstname, lastname, email, password, checkPassword } = req.body;
-
+    // récupération du retour de la validation
     const verif = schema.validate({
       firstname,
       lastname,
       email,
       password,
-      checkPassword,
     });
-    // Si une erreur lors de la vérif, renvoie True, sinon False
-    // Si true, je redirige vers signup
+
+    // Si une erreur lors de la vérif, verif.error = True
 
     if (verif.error) {
-      console.log('je passse ici');
       return res.render('signup', { badFormData: true, badPassword: false });
     }
 
@@ -45,7 +43,7 @@ const authController = {
       if (password !== checkPassword) {
         // return si pas de correspondance
         // badPassword = déclenchement message d'erreur pour l'utilisateur
-        return res.render('signup', { badPassword: true });
+        return res.render('signup', { badPassword: true, badFormData: false });
       } else {
         await newUser.save();
         res.render('signin', { badPassword: false });
