@@ -14,6 +14,7 @@ Access.init(
     },
   },
   {
+    underscored: true,
     tableName: 'access',
     sequelize,
     modelName: 'Access',

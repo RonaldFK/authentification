@@ -1,8 +1,9 @@
--- seeding table user
-INSERT INTO "user" (firstname,lastname,email,login,password) VALUES('admin','Doe','admin@doe.fr','admin','admin');
-
 -- seeding table member
 INSERT INTO "member" (name) VALUES('admin');
+INSERT INTO "member" (name) VALUES('users');
+-- seeding table user
+INSERT INTO "user" (firstname,lastname,email,login,password,member_type) VALUES('admin','Doe','admin@doe.fr','admin','admin',1);
+
 
 -- seeding table access
 INSERT INTO "access" (name) VALUES('cabine VIP');

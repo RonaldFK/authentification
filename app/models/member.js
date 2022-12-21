@@ -10,6 +10,7 @@ Member.init(
     },
   },
   {
+    underscored: true,
     tableName: 'member',
     sequelize,
     modelName: 'Member',

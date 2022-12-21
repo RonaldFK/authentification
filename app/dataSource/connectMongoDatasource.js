@@ -8,7 +8,7 @@ const connectMongo = app.use(
     secret: `${process.env.SESSION_SECRET}` || 'edit to you dotenv file',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 24 hours
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 24 h
     store: MongoStore.create({
       mongoUrl: `${process.env.CONNECT_MONGO_URL}`,
       autoRemove: 'disabled',

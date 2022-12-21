@@ -10,5 +10,3 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = transporter;
-
-// main().catch(console.error);

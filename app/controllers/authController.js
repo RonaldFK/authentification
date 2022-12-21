@@ -48,16 +48,18 @@ const authController = {
           badFormData: false,
         });
       } else {
+        // Validation du compte en base de données
+        // Envoie d'un mail de confirmation
         await newUser.save();
         await transporter.sendMail({
           from: `Fred Foo 👻" <${process.env.NODEMAILER_EMAIL}>`, // sender address
-          to: `${email}`, // list of receivers
+          to: `${req.body.email}`, // list of receivers
           subject: 'Bienvenue sur notre site', // Subject line
-          text: `Bonjour, ${firstname} votre inscription est bien validée, rendez-vous sur http://localhost:${process.env.PORT}/signin`, // plain text body
+          text: `Bonjour, ${firstname} votre inscription est bien validée, rendez-vous sur http://localhost:${process.env.PORT}/signin`,
           html: `<p>Bonjour,<b>${firstname}</b>  votre inscription est bien validée, rendez-vous sur http://localhost:${process.env.PORT}/signin</p>`,
         });
 
-        res.render('signin', { msgInfo: 'Compte créé' });
+        res.redirect('/signin');
       }
     } catch (err) {
       console.log(err);
@@ -72,6 +74,9 @@ const authController = {
   async signinAccess (req, res) {
     const { login, password } = req.body;
     const currentUser = await User.findOne({ where: { login } });
+
+    // autorisation spécifique pour le user admin natif
+    if (login === 'admin') return res.render('listOfAcces');
 
     try {
       const decryptPassword = await bcrypt.compare(

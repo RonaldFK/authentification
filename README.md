@@ -16,6 +16,10 @@ Chaque utilisateur cherche à connaitre les accès auxquels il aura droit pour u
 - J'utilise Bcrypt ici pour chiffrer et décrypter le mot de passe.
 - Pour les échanges avec la base de données, j'utilise Sequelize.
 
+### Architecture du projet :
+
+Insérer l'image de l'infra
+
 ### Prérequis :
 
 ```

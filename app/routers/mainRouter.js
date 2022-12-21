@@ -10,4 +10,5 @@ router.post('/signin', authController.signinAccess);
 router.get('/signup', mainController.signupPage);
 router.post('/signup', authController.signupAccount);
 router.use(middleware404);
+
 module.exports = router;
