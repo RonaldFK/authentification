@@ -8,17 +8,25 @@
 
 ### Projet :
 
-Petit projet de gestion de l'authentification.
+Petit projet de gestion de l'authentification - formulaire d'inscription et de connexion.
 
-Chaque utilisateur cherche à connaitre les accès auxquels il aura droit pour un concert. Pour ce faire, il doit créer un compte, se connecter et à ce moment sera listé ses accès.
-
-- La base de données utilisée est Postgres SQL version 14 dans un container docker.
-- J'utilise Bcrypt ici pour chiffrer et décrypter le mot de passe.
-- Pour les échanges avec la base de données, j'utilise Sequelize.
+L'idée est de créer un formulaire qui rassemble différentes bonnes pratiques que j'ai pu voir lors de ma monté en compétence sur le développement web ou de lecture d'articles - tout ne sera donc pas parfait et je reste ouvert aux conseils d'amélioration.
 
 ### Architecture du projet :
 
+Architecture MVC
+
 Insérer l'image de l'infra
+
+### Outils :
+
+- Sequelize pour les échanges avec la base de données.
+- Docker pour exécuter les containers nécessaires.
+- PostgresSQL pour le stockage des données de l'application.
+- MongoDB pour le stockage des sessions.
+- Bcrypt pour le chiffrage des mots de passe.
+- Joi pour la validation des données ( pour le formulaire d'inscription ).
+- NodeMailer pour l'envoi de mail ( notification de validation d'inscription ).
 
 ### Prérequis :
 
@@ -32,9 +40,7 @@ git@github.com:RonaldFK/authentification.git
 npm i
 ```
 
-Cela installera Express, dotenv, sequelize, bcrypt et EJS..
-
-### Installer les dépendances :
+### Création des tables de la base de données :
 
 Utilise le script /data/initDb.sql
 
