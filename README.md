@@ -10,7 +10,7 @@
 
 Petit projet de gestion de l'authentification - formulaire d'inscription et de connexion.
 
-L'idée est de créer un formulaire qui rassemble différentes bonnes pratiques que j'ai pu voir lors de ma monté en compétence sur le développement web ou de lecture d'articles - tout ne sera donc pas parfait et je reste ouvert aux conseils d'amélioration.
+L'idée est de créer un formulaire qui rassemble différentes bonnes pratiques que j'ai pu voir lors de ma formation au développement web ou de lecture d'articles - tout ne sera donc pas parfait et je reste ouvert aux conseils d'amélioration ( mail sur mon profil ).
 
 ### Architecture du projet :
 
