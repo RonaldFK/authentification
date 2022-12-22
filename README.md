@@ -16,7 +16,8 @@ L'idée est de créer un formulaire qui rassemble différentes bonnes pratiques 
 
 Architecture MVC
 
-Insérer l'image de l'infra
+<img width="1320" alt="structure formulaire" src="https://user-images.githubusercontent.com/90004972/209116772-04288a15-cd4c-49f6-9d91-913c474ab99a.png">
+
 
 ### Outils :
 
